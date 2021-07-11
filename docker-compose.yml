@@ -7,8 +7,8 @@ services:
     volumes:
       - ./minio/data/:/data
       - ./minio/conf/:/root/.minio
-    ports:
-      - "9001:9000"
+    expose:
+      - "9000"
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
@@ -18,6 +18,11 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
+    networks:
+        - minio
+
+networks:
+  minio:
 
   # nginx:
   #   image: nginx:1.19.2-alpine
