@@ -24,6 +24,8 @@ services:
     volumes:
       - ./minio/data/:/data
       - ./minio/conf/:/root/.minio
+    networks:
+      - minio
 
 networks:
   minio:
