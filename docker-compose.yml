@@ -25,6 +25,7 @@ services:
     volumes:
       - ./minio/data/:/data
       - ./minio/conf/:/root/.minio
+    restart: always
 
   #nginx:
   #  image: nginx:1.19.2-alpine
